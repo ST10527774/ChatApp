@@ -1,0 +1,16 @@
+name: Java CI 
+
+on: [push] 
+
+jobs:
+	build:
+		runs-on: ubuntu-latest
+        		steps:
+				-uses: actions/checkout@v3
+				-name: Set up JDK
+				uses: actions/set up-java@v3
+					with:
+				java-version: '17'
+				distribution: 'temurin'
+				-name: Build and run all the test with maven 
+				run: mvn test # picks up loginTest AND MessageTest automatically
